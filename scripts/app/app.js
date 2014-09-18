@@ -4,7 +4,7 @@
 lunchPlannerApp = angular.module('lunchPlanner', ['ui.router']);
 
 lunchPlannerApp.config(function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise('/landing');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
         .state('registerUser', {
