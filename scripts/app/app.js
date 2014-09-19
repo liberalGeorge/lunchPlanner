@@ -9,7 +9,7 @@ lunchPlannerApp.config(['$stateProvider', '$urlRouterProvider', function($stateP
     $stateProvider
         .state('registerUser', {
             url: '/registerUser',
-            templateUrl: 'partials/registerUser/index.html',
+            templateUrl: 'html/release/partials/registerUser/index.html',
             controller: 'registerUserCtrl',
             data: {
                 pageTitle: 'Register User - Lunch Planner for Teams that Lunch'
@@ -17,7 +17,7 @@ lunchPlannerApp.config(['$stateProvider', '$urlRouterProvider', function($stateP
         })
         .state('registerTeam', {
             url: '/registerTeam',
-            templateUrl: 'partials/registerTeam/index.html',
+            templateUrl: 'html/release/partials/registerTeam/index.html',
             controller: 'registerTeamCtrl',
             data: {
                 pageTitle: 'Register Team - Lunch Planner for Teams that Lunch'
@@ -25,7 +25,7 @@ lunchPlannerApp.config(['$stateProvider', '$urlRouterProvider', function($stateP
         })
         .state('joinTeam', {
             url: '/joinTeam',
-            templateUrl: 'partials/joinTeam/index.html',
+            templateUrl: 'html/release/partials/joinTeam/index.html',
             controller: 'joinTeamCtrl',
             data: {
                 pageTitle: 'Join Team - Lunch Planner for Teams that Lunch'
@@ -33,7 +33,7 @@ lunchPlannerApp.config(['$stateProvider', '$urlRouterProvider', function($stateP
         })
         .state('planMeal', {
             url: '/planMeal',
-            templateUrl: 'partials/planMeal/index.html',
+            templateUrl: 'html/release/partials/planMeal/index.html',
             controller: 'planMealCtrl',
             data: {
                 pageTitle: 'Plan Meal - Lunch Planner for Teams that Lunch'
@@ -41,7 +41,7 @@ lunchPlannerApp.config(['$stateProvider', '$urlRouterProvider', function($stateP
         })
         .state('joinMeal', {
             url: '/joinMeal',
-            templateUrl: 'partials/joinMeal/index.html',
+            templateUrl: 'html/release/partials/joinMeal/index.html',
             controller: 'joinCtrl',
             data: {
                 pageTitle: 'Join Meal - Lunch Planner for Teams that Lunch'

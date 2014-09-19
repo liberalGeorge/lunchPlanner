@@ -7,20 +7,14 @@ beforeEach(function() {
 describe('state provider configuration:', function(){
     describe('clicking register user', function(){
         it('should render the register user area', function(){
-            //click register
             element(by.css('.mainNavigation__item-registerUser')).click().then(function() {
-                //see if registration area exists
-                //ui-router is injecting a class onto my element, therefore my class
-                //alone produces a fail, even though the expected element is present
                 expect(element(by.css('.registerUser.ng-scope')).isPresent()).toBe(true);
             });
         });
         it('should remove the pre-existing area', function(){
-            //click register
-            element(by.css('.mainNavigation__item-registerUser')).click();
-
-            //check if initial area has been removed
-            expect(element(by.css('welcome')).isPresent()).toBe(false);
+            element(by.css('.mainNavigation__item-registerUser')).click().then(function(){
+                expect(element(by.css('welcome')).isPresent()).toBe(false);
+            });
         });
         it('should have the correct page title', function(){
             element(by.css('.mainNavigation__item-registerUser')).click().then(function(){
@@ -79,18 +73,14 @@ describe('state provider configuration:', function(){
     });
     describe('clicking plan meal', function(){
         it('should render the plan area', function(){
-            //click plan
             element(by.css('.mainNavigation__item-planMeal')).click().then(function(){
-                //see if plan area exists
                 expect(element(by.css('.planMeal.ng-scope')).isPresent()).toBe(true);
             });
         });
         it('should remove the pre-existing area', function(){
-            //click register
-            element(by.css('.mainNavigation__item-planMeal')).click();
-
-            //check if initial area has been removed
-            expect(element(by.css('welcome')).isPresent()).toBe(false);
+            element(by.css('.mainNavigation__item-planMeal')).click().then(function(){
+                expect(element(by.css('welcome')).isPresent()).toBe(false);
+            });
         });
         it('should have the correct page title', function(){
             element(by.css('.mainNavigation__item-planMeal')).click().then(function(){
@@ -105,18 +95,14 @@ describe('state provider configuration:', function(){
     });
     describe('clicking join meal', function(){
         it('should render the join area', function(){
-            //click join
             element(by.css('.mainNavigation__item-joinMeal')).click().then(function(){
-                //see if join area exists
                 expect(element(by.css('.joinMeal.ng-scope')).isPresent()).toBe(true);
             });
         });
         it('should remove the pre-existing area', function(){
-            //click register
-            element(by.css('.mainNavigation__item-joinMeal')).click();
-
-            //check if initial area has been removed
-            expect(element(by.css('welcome')).isPresent()).toBe(false);
+            element(by.css('.mainNavigation__item-joinMeal')).click().then(function(){
+                expect(element(by.css('welcome')).isPresent()).toBe(false);
+            });
         });
         it('should have the correct page title', function(){
             element(by.css('.mainNavigation__item-joinMeal')).click().then(function(){
@@ -127,6 +113,36 @@ describe('state provider configuration:', function(){
             element(by.css('.mainNavigation__item-joinMeal')).click().then(function(){
                 expect(browser.getCurrentUrl()).toBe('http://lunchplanner.com/#/joinMeal');
             });
+        });
+    });
+});
+xdescribe('the register user form', function(){
+    it('should have a real name field', function(){
+        expect(element(by.css('.registerUser__form-name'))).toExist();
+    });
+    it('should have an email field', function(){
+        expect(element(by.css('.registerUser__form-email'))).toExist();
+    });
+    describe('real name field', function(){
+        it('should have a corresponding label', function(){
+            //maybe should gain focus when label is clicked?
+        });
+        it('should be an input field of type text', function(){
+            expect(element(by.css('.registerUser__form-name')).getAttribute('type')).toMatch('text');
+        });
+    });
+    describe('email field', function(){
+        it('should have a corresponding label', function(){
+            //maybe should gain focus when label is clicked?
+        });
+        it('should be an input field of type email', function(){
+            expect(element(by.css('.registerUser__form-email')).getAttribute('type')).toMatch('email');
+        });
+        it('should be valide when a valid email address is entered', function(){
+            element(by.css('.registerUser__form-email')).sendKeys('me@someemail.com')
+        });
+        it('should be invalid when an invalid email address is entered', function(){
+            element(by.css('.registerUser__form-email')).sendKeys('someemail.com')
         });
     });
 });
