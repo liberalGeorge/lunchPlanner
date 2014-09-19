@@ -32,7 +32,7 @@ lunchPlannerApp.config(['$stateProvider', '$urlRouterProvider', function($stateP
             }
         })
         .state('planMeal', {
-            url: '/plan',
+            url: '/planMeal',
             templateUrl: 'partials/planMeal/index.html',
             controller: 'planMealCtrl',
             data: {
