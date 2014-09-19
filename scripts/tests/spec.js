@@ -22,7 +22,11 @@ describe('clicking register user', function(){
         //check if initial area has been removed
         expect(element(by.css('welcome')).isPresent()).toBe(false);
     });
-    //browser title - .getTitle()
+    it('should have the correct page title', function(){
+        element(by.css('.mainNavigation__item-registerUser')).click().then(function(){
+            expect(browser.getTitle()).toBe('Register User - Lunch Planner for Teams that Lunch');
+        });
+    });
     //url
 });
 describe('clicking register team', function(){
@@ -34,6 +38,11 @@ describe('clicking register team', function(){
     it('should remove the pre-existing area', function(){
         element(by.css('.mainNavigation__item-registerTeam')).click().then(function(){
             expect(element(by.css('.welcome')).isPresent()).toBe(false);
+        });
+    });
+    it('should have the correct page title', function(){
+        element(by.css('.mainNavigation__item-registerTeam')).click().then(function(){
+            expect(browser.getTitle()).toBe('Register Team - Lunch Planner for Teams that Lunch');
         });
     });
 });
@@ -48,8 +57,13 @@ describe('clicking join team', function(){
             expect(element(by.css('.welcome')).isPresent()).toBe(false);
         });
     });
+    it('should have the correct page title', function(){
+        element(by.css('.mainNavigation__item-joinTeam')).click().then(function(){
+            expect(browser.getTitle()).toBe('Join Team - Lunch Planner for Teams that Lunch');
+        });
+    });
 });
-describe('clicking plan', function(){
+describe('clicking plan meal', function(){
     it('should render the plan area', function(){
         //click plan
         element(by.css('.mainNavigation__item-planMeal')).click().then(function(){
@@ -64,8 +78,13 @@ describe('clicking plan', function(){
         //check if initial area has been removed
         expect(element(by.css('welcome')).isPresent()).toBe(false);
     });
+    it('should have the correct page title', function(){
+        element(by.css('.mainNavigation__item-planMeal')).click().then(function(){
+            expect(browser.getTitle()).toBe('Plan Meal - Lunch Planner for Teams that Lunch');
+        });
+    });
 });
-describe('clicking join', function(){
+describe('clicking join meal', function(){
     it('should render the join area', function(){
         //click join
         element(by.css('.mainNavigation__item-joinMeal')).click().then(function(){
@@ -79,5 +98,10 @@ describe('clicking join', function(){
 
         //check if initial area has been removed
         expect(element(by.css('welcome')).isPresent()).toBe(false);
+    });
+    it('should have the correct page title', function(){
+        element(by.css('.mainNavigation__item-joinMeal')).click().then(function(){
+            expect(browser.getTitle()).toBe('Join Meal - Lunch Planner for Teams that Lunch');
+        });
     });
 });
