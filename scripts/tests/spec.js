@@ -1,10 +1,10 @@
 /**
  * Created by georginaHughes on 13/09/2014.
  */
-beforeEach(function() {
-    browser.get('http://lunchplanner.com');
-});
 describe('state provider configuration:', function(){
+    beforeEach(function() {
+        browser.get('http://lunchplanner.com');
+    });
     describe('clicking register user', function(){
         it('should render the register user area', function(){
             element(by.css('.mainNavigation__item-registerUser')).click().then(function() {
@@ -116,33 +116,34 @@ describe('state provider configuration:', function(){
         });
     });
 });
-xdescribe('the register user form', function(){
+describe('the register user form', function(){
+    beforeEach(function(){
+        browser.get('http://lunchplanner.com/#/registerUser');
+    });
     it('should have a real name field', function(){
-        expect(element(by.css('.registerUser__form-name'))).toExist();
+        expect(protractor.getInstance().isElementPresent(element(by.css('.registerUser__form-name')))).toBeTruthy();
     });
     it('should have an email field', function(){
-        expect(element(by.css('.registerUser__form-email'))).toExist();
+        expect(browser.isElementPresent(element(by.css('.registerUser__form-email')))).toBeTruthy();
     });
     describe('real name field', function(){
-        it('should have a corresponding label', function(){
-            //maybe should gain focus when label is clicked?
+        it('should gain focus when its label is clicked', function(){
+            element(by.css('.registerUser__form-nameLabel')).click().then(function(){
+                expect(browser.driver.switchTo().activeElement().getAttribute('class')).toEqual('registerUser__form-name');
+            });
         });
         it('should be an input field of type text', function(){
             expect(element(by.css('.registerUser__form-name')).getAttribute('type')).toMatch('text');
         });
     });
     describe('email field', function(){
-        it('should have a corresponding label', function(){
-            //maybe should gain focus when label is clicked?
+        it('should gain focus when its label is clicked', function(){
+            element(by.css('.registerUser__form-emailLabel')).click().then(function(){
+                expect(browser.driver.switchTo().activeElement().getAttribute('class')).toEqual('registerUser__form-email');
+            });
         });
         it('should be an input field of type email', function(){
             expect(element(by.css('.registerUser__form-email')).getAttribute('type')).toMatch('email');
-        });
-        it('should be valide when a valid email address is entered', function(){
-            element(by.css('.registerUser__form-email')).sendKeys('me@someemail.com')
-        });
-        it('should be invalid when an invalid email address is entered', function(){
-            element(by.css('.registerUser__form-email')).sendKeys('someemail.com')
         });
     });
 });

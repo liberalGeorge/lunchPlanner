@@ -1,8 +1,10 @@
 <section class="registerUser">
     <h2>Registration</h2>
     <!--On success or failure use $state.go() to send to correct page-->
-    <form class="registUser__form">
-        <input class="registerUser__form-name" type="text"/>
-        <input class="registerUser__form-email" type="email"/>
+    <form class="registerUser__form">
+        <label class="registerUser__form-nameLabel" for="name">Name</label>
+        <input id="name" name="name" class="registerUser__form-name" type="text"/>
+        <label class="registerUser__form-emailLabel" for="email">Email</label>
+        <input id="email" name="email" class="registerUser__form-email" type="email"/>
     </form>
 </section>
