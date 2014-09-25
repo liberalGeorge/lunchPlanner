@@ -1,7 +1,7 @@
 /**
  * Created by georginaHughes on 13/09/2014.
  */
-describe('state provider configuration:', function(){
+xdescribe('state provider configuration:', function(){
     beforeEach(function() {
         browser.get('http://lunchplanner.com');
     });
@@ -13,7 +13,7 @@ describe('state provider configuration:', function(){
         });
         it('should remove the pre-existing area', function(){
             element(by.css('.mainNavigation__item-registerUser')).click().then(function(){
-                expect(element(by.css('welcome')).isPresent()).toBe(false);
+                expect(element(by.css('.welcome')).isPresent()).toBe(false);
             });
         });
         it('should have the correct page title', function(){
@@ -79,7 +79,7 @@ describe('state provider configuration:', function(){
         });
         it('should remove the pre-existing area', function(){
             element(by.css('.mainNavigation__item-planMeal')).click().then(function(){
-                expect(element(by.css('welcome')).isPresent()).toBe(false);
+                expect(element(by.css('.welcome')).isPresent()).toBe(false);
             });
         });
         it('should have the correct page title', function(){
@@ -101,7 +101,7 @@ describe('state provider configuration:', function(){
         });
         it('should remove the pre-existing area', function(){
             element(by.css('.mainNavigation__item-joinMeal')).click().then(function(){
-                expect(element(by.css('welcome')).isPresent()).toBe(false);
+                expect(element(by.css('.welcome')).isPresent()).toBe(false);
             });
         });
         it('should have the correct page title', function(){
@@ -116,34 +116,23 @@ describe('state provider configuration:', function(){
         });
     });
 });
-describe('the register user form', function(){
+xdescribe('the register team form', function(){
     beforeEach(function(){
-        browser.get('http://lunchplanner.com/#/registerUser');
+        browser.get('http://lunchplanner.com/#/registerTeam/');
     });
-    it('should have a real name field', function(){
-        expect(protractor.getInstance().isElementPresent(element(by.css('.registerUser__form-name')))).toBeTruthy();
+    it('should have a team name field', function(){
+
     });
-    it('should have an email field', function(){
-        expect(browser.isElementPresent(element(by.css('.registerUser__form-email')))).toBeTruthy();
+    it('should have a ', function(){
+
     });
-    describe('real name field', function(){
-        it('should gain focus when its label is clicked', function(){
-            element(by.css('.registerUser__form-nameLabel')).click().then(function(){
-                expect(browser.driver.switchTo().activeElement().getAttribute('class')).toEqual('registerUser__form-name');
-            });
+});
+xdescribe('the join team form', function(){
+    describe('checkbox list', function(){
+        it('should show an error message if no teams exist', function(){
+
         });
-        it('should be an input field of type text', function(){
-            expect(element(by.css('.registerUser__form-name')).getAttribute('type')).toMatch('text');
-        });
+
     });
-    describe('email field', function(){
-        it('should gain focus when its label is clicked', function(){
-            element(by.css('.registerUser__form-emailLabel')).click().then(function(){
-                expect(browser.driver.switchTo().activeElement().getAttribute('class')).toEqual('registerUser__form-email');
-            });
-        });
-        it('should be an input field of type email', function(){
-            expect(element(by.css('.registerUser__form-email')).getAttribute('type')).toMatch('email');
-        });
-    });
+
 });
